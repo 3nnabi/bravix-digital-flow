@@ -234,6 +234,32 @@
   }
 }
 
+@keyframes logoZoom {
+  0% {
+    transform: scale(0.3) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes logoEntrance {
+  0% {
+    transform: scale(0.8) translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -264,7 +290,17 @@
 }
 
 .animate-banner-slide {
-  animation: banner-slide 1.5s ease-in-out;
+  animation: banner-slide 2.5s ease-in-out;
+}
+
+.logo-zoom-animation {
+  animation: logoZoom 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+.logo-entrance-animation {
+  animation: logoEntrance 1s ease-out forwards;
+  opacity: 0;
 }
 
 .geometric-entrance {

@@ -17,7 +17,7 @@ const AnimatedBanner = ({ isVisible, onComplete }: AnimatedBannerProps) => {
       const timer = setTimeout(() => {
         setShouldRender(false);
         onComplete();
-      }, 1500);
+      }, 2500);
       return () => clearTimeout(timer);
     }
   }, [isVisible, onComplete]);
@@ -26,17 +26,27 @@ const AnimatedBanner = ({ isVisible, onComplete }: AnimatedBannerProps) => {
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-br from-bravix-navy via-slate-900 to-bravix-orange animate-slide-in-right">
+      <div className="absolute inset-0 bg-gradient-to-br from-bravix-navy via-slate-900 to-bravix-orange animate-banner-slide">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center animate-scale-in">
-            <h2 className="text-6xl md:text-8xl font-bold text-white tracking-wider mb-4">
+          {/* Prominent Logo Animation */}
+          <div className="text-center">
+            <div className="mb-8 logo-zoom-animation">
+              <img 
+                src="/lovable-uploads/e3b4989b-a542-4ed9-83bf-78ca6f09bc57.png" 
+                alt="Bravix Logo" 
+                className="h-32 md:h-48 lg:h-56 w-auto mx-auto filter brightness-0 invert"
+              />
+            </div>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider mb-4 animate-scale-in">
               {t('banner.title')}
             </h2>
-            <p className="text-xl md:text-2xl text-white/80">{t('banner.subtitle')}</p>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/80 animate-slide-in" style={{ animationDelay: '0.5s' }}>
+              {t('banner.subtitle')}
+            </p>
           </div>
         </div>
         
-        {/* Animated geometric shapes */}
+        {/* Enhanced Animated geometric shapes */}
         <div className="absolute top-20 left-20 w-32 h-32 bg-white/20 rounded-full animate-float"></div>
         <div className="absolute top-40 right-32 w-24 h-24 bg-white/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
         <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-white/10 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
