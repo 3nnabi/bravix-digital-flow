@@ -18,14 +18,43 @@ const ContactSection = () => {
     service: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', service: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      // Create mailto link
+      const subject = encodeURIComponent(`New Service Request from ${formData.name}`);
+      const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Service Type: ${formData.service}
+Message: ${formData.message}
+
+Sent from Bravix Website
+      `);
+      
+      const mailtoLink = `mailto:alialibadr2010@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
+
+      toast({
+        title: t('contact.success'),
+        description: t('contact.successDesc'),
+      });
+      
+      setFormData({ name: '', email: '', service: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -100,10 +129,11 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-bravix-orange hover:bg-bravix-orange/90 text-white py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+                  disabled={isSubmitting}
+                  className="w-full bg-bravix-orange hover:bg-bravix-orange/90 text-white py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
                 >
                   <Send className="mr-2 h-4 w-4" />
-                  {t('contact.send')}
+                  {isSubmitting ? 'Sending...' : t('contact.send')}
                 </Button>
               </form>
             </CardContent>
@@ -114,10 +144,10 @@ const ContactSection = () => {
             <div className="space-y-8">
               <div className="text-center lg:text-left">
                 <h3 className="text-2xl font-bold text-foreground mb-4">
-                  Let's Create Something Amazing Together
+                  {t('contact.subtitle')}
                 </h3>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Ready to elevate your digital presence? Contact us today and let's discuss how we can help your brand stand out in the digital world.
+                  {t('contact.description')}
                 </p>
               </div>
 
@@ -151,23 +181,23 @@ const ContactSection = () => {
               </div>
 
               <div className="bg-gradient-to-br from-bravix-navy to-bravix-orange rounded-2xl p-8 text-white">
-                <h4 className="text-xl font-bold mb-4">Why Choose Bravix?</h4>
+                <h4 className="text-xl font-bold mb-4">{t('contact.whyTitle')}</h4>
                 <ul className="space-y-3">
                   <li className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                    Premium Quality Designs
+                    {t('contact.premium')}
                   </li>
                   <li className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                    Fast Turnaround Time
+                    {t('contact.fast')}
                   </li>
                   <li className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                    24/7 Customer Support
+                    {t('contact.support247')}
                   </li>
                   <li className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                    Competitive Pricing
+                    {t('contact.pricing')}
                   </li>
                 </ul>
               </div>

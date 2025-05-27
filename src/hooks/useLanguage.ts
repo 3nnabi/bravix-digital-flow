@@ -33,7 +33,7 @@ export const translations: Translations = {
   // Why Bravix Section
   'why.title': { en: 'Why Choose Bravix', ar: 'لماذا تختار برافيكس', fr: 'Pourquoi Choisir Bravix' },
   'why.quality.title': { en: 'Unmatched Quality', ar: 'جودة لا مثيل لها', fr: 'Qualité Inégalée' },
-  'why.quality.desc': { en: 'Premium designs that stand out', ar: 'تصاميم فاخرة تتميز عن الباقي', fr: 'Designs premium qui se démarquent' },
+  'why.quality.desc': { en: 'Premium designs that stand out from the competition', ar: 'تصاميم فاخرة تتميز عن المنافسة', fr: 'Designs premium qui se démarquent de la concurrence' },
   'why.speed.title': { en: 'Fast Execution', ar: 'تنفيذ سريع', fr: 'Exécution Rapide' },
   'why.speed.desc': { en: 'Quick turnaround without compromising quality', ar: 'تسليم سريع دون المساس بالجودة', fr: 'Livraison rapide sans compromettre la qualité' },
   'why.creative.title': { en: 'Creative Expertise', ar: 'خبرة إبداعية', fr: 'Expertise Créative' },
@@ -58,6 +58,10 @@ export const translations: Translations = {
     ar: 'في برافيكس، نؤمن أن كل مشروع يستحق هوية رقمية قوية. نحن نقدم أكثر من مجرد خدمات — نصنع الحضور الرقمي بدقة وإبداع.', 
     fr: 'Chez Bravix, nous croyons que chaque projet mérite une identité numérique forte. Nous livrons plus que des services — nous créons une présence numérique avec précision et créativité.' 
   },
+  'about.clients': { en: 'Happy Clients', ar: 'عملاء سعداء', fr: 'Clients Satisfaits' },
+  'about.projects': { en: 'Projects Completed', ar: 'مشاريع منجزة', fr: 'Projets Complétés' },
+  'about.support': { en: 'Support', ar: 'الدعم', fr: 'Support' },
+  'about.experience': { en: 'Years Experience', ar: 'سنوات خبرة', fr: 'Années d\'Expérience' },
   
   // Portfolio Section
   'portfolio.title': { en: 'Our Work', ar: 'أعمالنا', fr: 'Nos Travaux' },
@@ -73,6 +77,19 @@ export const translations: Translations = {
   'contact.service': { en: 'Service Type', ar: 'نوع الخدمة', fr: 'Type de Service' },
   'contact.message': { en: 'Message', ar: 'الرسالة', fr: 'Message' },
   'contact.send': { en: 'Send Message', ar: 'إرسال الرسالة', fr: 'Envoyer le Message' },
+  'contact.subtitle': { en: 'Let\'s Create Something Amazing Together', ar: 'لننشئ شيئًا مذهلاً معًا', fr: 'Créons Quelque Chose d\'Incroyable Ensemble' },
+  'contact.description': { 
+    en: 'Ready to elevate your digital presence? Contact us today and let\'s discuss how we can help your brand stand out in the digital world.', 
+    ar: 'هل أنت مستعد لرفع مستوى حضورك الرقمي؟ تواصل معنا اليوم ولنناقش كيف يمكننا مساعدة علامتك التجارية على التميز في العالم الرقمي.', 
+    fr: 'Prêt à élever votre présence numérique? Contactez-nous aujourd\'hui et discutons de la façon dont nous pouvons aider votre marque à se démarquer dans le monde numérique.' 
+  },
+  'contact.whyTitle': { en: 'Why Choose Bravix?', ar: 'لماذا تختار برافيكس؟', fr: 'Pourquoi Choisir Bravix?' },
+  'contact.premium': { en: 'Premium Quality Designs', ar: 'تصاميم عالية الجودة', fr: 'Designs de Qualité Premium' },
+  'contact.fast': { en: 'Fast Turnaround Time', ar: 'وقت تسليم سريع', fr: 'Délai de Livraison Rapide' },
+  'contact.support247': { en: '24/7 Customer Support', ar: 'دعم العملاء 24/7', fr: 'Support Client 24/7' },
+  'contact.pricing': { en: 'Competitive Pricing', ar: 'أسعار تنافسية', fr: 'Prix Compétitifs' },
+  'contact.success': { en: 'Message Sent!', ar: 'تم إرسال الرسالة!', fr: 'Message Envoyé!' },
+  'contact.successDesc': { en: 'Thank you for contacting us. We\'ll get back to you soon.', ar: 'شكرًا لتواصلكم معنا. سنعود إليكم قريبًا.', fr: 'Merci de nous avoir contactés. Nous vous répondrons bientôt.' },
 };
 
 export const useLanguage = () => {
