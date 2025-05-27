@@ -1,11 +1,9 @@
 
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { useLanguage } from '@/hooks/useLanguage';
 
 const NotFound = () => {
   const location = useLocation();
-  const { t } = useLanguage();
 
   useEffect(() => {
     console.error(
@@ -15,12 +13,12 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100" dir="rtl">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">{t('notfound.title')}</h1>
-        <p className="text-xl text-gray-600 mb-4">{t('notfound.message')}</p>
+        <h1 className="text-4xl font-bold mb-4">404</h1>
+        <p className="text-xl text-gray-600 mb-4">عذراً! الصفحة غير موجودة</p>
         <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          {t('notfound.returnHome')}
+          العودة للرئيسية
         </a>
       </div>
     </div>

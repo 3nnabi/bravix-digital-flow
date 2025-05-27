@@ -1,143 +1,115 @@
 
 import { useState, useEffect } from 'react';
 
-export type Language = 'en' | 'ar' | 'fr';
+export type Language = 'ar';
 
 interface Translations {
-  [key: string]: {
-    [key in Language]: string;
-  };
+  [key: string]: string;
 }
 
 export const translations: Translations = {
   // Navigation
-  'nav.home': { en: 'Home', ar: 'الرئيسية', fr: 'Accueil' },
-  'nav.services': { en: 'Services', ar: 'الخدمات', fr: 'Services' },
-  'nav.about': { en: 'About', ar: 'من نحن', fr: 'À propos' },
-  'nav.portfolio': { en: 'Portfolio', ar: 'معرض الأعمال', fr: 'Portfolio' },
-  'nav.contact': { en: 'Contact', ar: 'تواصل', fr: 'Contact' },
+  'nav.home': 'الرئيسية',
+  'nav.services': 'الخدمات',
+  'nav.about': 'من نحن',
+  'nav.portfolio': 'معرض الأعمال',
+  'nav.contact': 'تواصل',
   
   // Hero Section
-  'hero.title': { 
-    en: 'Your Digital Identity Starts Here', 
-    ar: 'هويتك الرقمية تبدأ من هنا', 
-    fr: 'Votre Identité Numérique Commence Ici' 
-  },
-  'hero.subtitle': { 
-    en: 'Integrated digital services including design, printing, social media management, and advertising — all in one modern platform.', 
-    ar: 'خدمات رقمية متكاملة تشمل التصميم والطباعة وإدارة وسائل التواصل الاجتماعي والإعلان — كل ذلك في منصة حديثة واحدة.', 
-    fr: 'Services numériques intégrés incluant design, impression, gestion des réseaux sociaux et publicité — tout sur une plateforme moderne.' 
-  },
-  'hero.cta': { en: 'Request a Service', ar: 'اطلب خدمة', fr: 'Demander un Service' },
+  'hero.title': 'هويتك الرقمية تبدأ من هنا',
+  'hero.subtitle': 'خدمات رقمية متكاملة تشمل التصميم والطباعة وإدارة وسائل التواصل الاجتماعي والإعلان — كل ذلك في منصة حديثة واحدة.',
+  'hero.cta': 'اطلب خدمة',
   
   // Animated Banner
-  'banner.title': { en: 'Bravix', ar: 'برافيكس', fr: 'Bravix' },
-  'banner.subtitle': { en: 'Digital Marketing Solutions', ar: 'حلول التسويق الرقمي', fr: 'Solutions de Marketing Numérique' },
+  'banner.title': 'برافيكس',
+  'banner.subtitle': 'حلول التسويق الرقمي',
   
   // Why Bravix Section
-  'why.title': { en: 'Why Choose Bravix', ar: 'لماذا تختار برافيكس', fr: 'Pourquoi Choisir Bravix' },
-  'why.quality.title': { en: 'Unmatched Quality', ar: 'جودة لا مثيل لها', fr: 'Qualité Inégalée' },
-  'why.quality.desc': { en: 'Premium designs that stand out from the competition', ar: 'تصاميم فاخرة تتميز عن المنافسة', fr: 'Designs premium qui se démarquent de la concurrence' },
-  'why.speed.title': { en: 'Fast Execution', ar: 'تنفيذ سريع', fr: 'Exécution Rapide' },
-  'why.speed.desc': { en: 'Quick turnaround without compromising quality', ar: 'تسليم سريع دون المساس بالجودة', fr: 'Livraison rapide sans compromettre la qualité' },
-  'why.creative.title': { en: 'Creative Expertise', ar: 'خبرة إبداعية', fr: 'Expertise Créative' },
-  'why.creative.desc': { en: 'Innovative solutions for your brand', ar: 'حلول مبتكرة لعلامتك التجارية', fr: 'Solutions innovantes pour votre marque' },
+  'why.title': 'لماذا تختار برافيكس',
+  'why.quality.title': 'جودة لا مثيل لها',
+  'why.quality.desc': 'تصاميم فاخرة تتميز عن المنافسة',
+  'why.speed.title': 'تنفيذ سريع',
+  'why.speed.desc': 'تسليم سريع دون المساس بالجودة',
+  'why.creative.title': 'خبرة إبداعية',
+  'why.creative.desc': 'حلول مبتكرة لعلامتك التجارية',
   
   // Services Section
-  'services.title': { en: 'All Your Digital Needs in One Place', ar: 'جميع احتياجاتك الرقمية في مكان واحد', fr: 'Tous Vos Besoins Numériques en Un Lieu' },
-  'services.graphic.title': { en: 'Graphic Design', ar: 'التصميم الجرافيكي', fr: 'Design Graphique' },
-  'services.graphic.desc': { en: 'Logos, Brand Identity, Social Media Visuals', ar: 'الشعارات، الهوية التجارية، صور وسائل التواصل', fr: 'Logos, Identité de Marque, Visuels Réseaux Sociaux' },
-  'services.printing.title': { en: 'Printing', ar: 'الطباعة', fr: 'Impression' },
-  'services.printing.desc': { en: 'Business Cards, Brochures, Banners, Roll-ups', ar: 'كروت العمل، الكتيبات، اللافتات، الرول آب', fr: 'Cartes de Visite, Brochures, Bannières, Roll-ups' },
-  'services.social.title': { en: 'Social Media Management', ar: 'إدارة وسائل التواصل', fr: 'Gestion Réseaux Sociaux' },
-  'services.social.desc': { en: 'Content Creation, Scheduling, Analytics, Strategy', ar: 'إنشاء المحتوى، الجدولة، التحليلات، الاستراتيجية', fr: 'Création de Contenu, Planification, Analyses, Stratégie' },
-  'services.ads.title': { en: 'Paid Advertising', ar: 'الإعلانات المدفوعة', fr: 'Publicité Payante' },
-  'services.ads.desc': { en: 'Campaign Strategy, Targeting, Design, Execution', ar: 'استراتيجية الحملات، الاستهداف، التصميم، التنفيذ', fr: 'Stratégie de Campagne, Ciblage, Design, Exécution' },
-  'services.cta': { en: 'Request Now', ar: 'اطلب الآن', fr: 'Demander Maintenant' },
+  'services.title': 'جميع احتياجاتك الرقمية في مكان واحد',
+  'services.graphic.title': 'التصميم الجرافيكي',
+  'services.graphic.desc': 'الشعارات، الهوية التجارية، صور وسائل التواصل',
+  'services.printing.title': 'الطباعة',
+  'services.printing.desc': 'كروت العمل، الكتيبات، اللافتات، الرول آب',
+  'services.social.title': 'إدارة وسائل التواصل',
+  'services.social.desc': 'إنشاء المحتوى، الجدولة، التحليلات، الاستراتيجية',
+  'services.ads.title': 'الإعلانات المدفوعة',
+  'services.ads.desc': 'استراتيجية الحملات، الاستهداف، التصميم، التنفيذ',
+  'services.cta': 'اطلب الآن',
   
   // About Section
-  'about.title': { en: 'About Bravix', ar: 'حول برافيكس', fr: 'À Propos de Bravix' },
-  'about.desc': { 
-    en: 'At Bravix, we believe every project deserves a strong digital identity. We deliver more than just services — we craft digital presence with precision and creativity.', 
-    ar: 'في برافيكس، نؤمن أن كل مشروع يستحق هوية رقمية قوية. نحن نقدم أكثر من مجرد خدمات — نصنع الحضور الرقمي بدقة وإبداع.', 
-    fr: 'Chez Bravix, nous croyons que chaque projet mérite une identité numérique forte. Nous livrons plus que des services — nous créons une présence numérique avec précision et créativité.' 
-  },
-  'about.clients': { en: 'Happy Clients', ar: 'عملاء سعداء', fr: 'Clients Satisfaits' },
-  'about.projects': { en: 'Projects Completed', ar: 'مشاريع منجزة', fr: 'Projets Complétés' },
-  'about.support': { en: 'Support', ar: 'الدعم', fr: 'Support' },
-  'about.experience': { en: 'Years Experience', ar: 'سنوات خبرة', fr: 'Années d\'Expérience' },
+  'about.title': 'حول برافيكس',
+  'about.desc': 'في برافيكس، نؤمن أن كل مشروع يستحق هوية رقمية قوية. نحن نقدم أكثر من مجرد خدمات — نصنع الحضور الرقمي بدقة وإبداع.',
+  'about.clients': 'عملاء سعداء',
+  'about.projects': 'مشاريع منجزة',
+  'about.support': 'الدعم',
+  'about.experience': 'سنوات خبرة',
   
   // Portfolio Section
-  'portfolio.title': { en: 'Our Work', ar: 'أعمالنا', fr: 'Nos Travaux' },
-  'portfolio.graphic': { en: 'Graphic Design', ar: 'التصميم الجرافيكي', fr: 'Design Graphique' },
-  'portfolio.printing': { en: 'Printing', ar: 'الطباعة', fr: 'Impression' },
-  'portfolio.social': { en: 'Social Media', ar: 'وسائل التواصل', fr: 'Réseaux Sociaux' },
-  'portfolio.advertising': { en: 'Advertising', ar: 'الإعلان', fr: 'Publicité' },
+  'portfolio.title': 'أعمالنا',
+  'portfolio.graphic': 'التصميم الجرافيكي',
+  'portfolio.printing': 'الطباعة',
+  'portfolio.social': 'وسائل التواصل',
+  'portfolio.advertising': 'الإعلان',
   
   // Portfolio Items
-  'portfolio.item.logoDesign': { en: 'Logo Design', ar: 'تصميم الشعار', fr: 'Design de Logo' },
-  'portfolio.item.brandIdentity': { en: 'Brand Identity', ar: 'الهوية التجارية', fr: 'Identité de Marque' },
-  'portfolio.item.socialKit': { en: 'Social Media Kit', ar: 'حزمة وسائل التواصل', fr: 'Kit Réseaux Sociaux' },
-  'portfolio.item.businessCards': { en: 'Business Cards', ar: 'كروت العمل', fr: 'Cartes de Visite' },
-  'portfolio.item.brochures': { en: 'Brochures', ar: 'الكتيبات', fr: 'Brochures' },
-  'portfolio.item.banners': { en: 'Banners', ar: 'اللافتات', fr: 'Bannières' },
-  'portfolio.item.instagramCampaign': { en: 'Instagram Campaign', ar: 'حملة إنستجرام', fr: 'Campagne Instagram' },
-  'portfolio.item.facebookPosts': { en: 'Facebook Posts', ar: 'منشورات فيسبوك', fr: 'Publications Facebook' },
-  'portfolio.item.socialStrategy': { en: 'Social Strategy', ar: 'استراتيجية اجتماعية', fr: 'Stratégie Sociale' },
-  'portfolio.item.googleAds': { en: 'Google Ads', ar: 'إعلانات جوجل', fr: 'Publicités Google' },
-  'portfolio.item.facebookAds': { en: 'Facebook Ads', ar: 'إعلانات فيسبوك', fr: 'Publicités Facebook' },
-  'portfolio.item.campaignDesign': { en: 'Campaign Design', ar: 'تصميم الحملة', fr: 'Design de Campagne' },
+  'portfolio.item.logoDesign': 'تصميم الشعار',
+  'portfolio.item.brandIdentity': 'الهوية التجارية',
+  'portfolio.item.socialKit': 'حزمة وسائل التواصل',
+  'portfolio.item.businessCards': 'كروت العمل',
+  'portfolio.item.brochures': 'الكتيبات',
+  'portfolio.item.banners': 'اللافتات',
+  'portfolio.item.instagramCampaign': 'حملة إنستجرام',
+  'portfolio.item.facebookPosts': 'منشورات فيسبوك',
+  'portfolio.item.socialStrategy': 'استراتيجية اجتماعية',
+  'portfolio.item.googleAds': 'إعلانات جوجل',
+  'portfolio.item.facebookAds': 'إعلانات فيسبوك',
+  'portfolio.item.campaignDesign': 'تصميم الحملة',
   
   // Contact Section
-  'contact.title': { en: 'Get In Touch', ar: 'تواصل معنا', fr: 'Contactez-Nous' },
-  'contact.name': { en: 'Name', ar: 'الاسم', fr: 'Nom' },
-  'contact.email': { en: 'Email', ar: 'البريد الإلكتروني', fr: 'Email' },
-  'contact.service': { en: 'Service Type', ar: 'نوع الخدمة', fr: 'Type de Service' },
-  'contact.message': { en: 'Message', ar: 'الرسالة', fr: 'Message' },
-  'contact.send': { en: 'Send Message', ar: 'إرسال الرسالة', fr: 'Envoyer le Message' },
-  'contact.sending': { en: 'Sending...', ar: 'جارٍ الإرسال...', fr: 'Envoi...' },
-  'contact.subtitle': { en: 'Let\'s Create Something Amazing Together', ar: 'لننشئ شيئًا مذهلاً معًا', fr: 'Créons Quelque Chose d\'Incroyable Ensemble' },
-  'contact.description': { 
-    en: 'Ready to elevate your digital presence? Contact us today and let\'s discuss how we can help your brand stand out in the digital world.', 
-    ar: 'هل أنت مستعد لرفع مستوى حضورك الرقمي؟ تواصل معنا اليوم ولنناقش كيف يمكننا مساعدة علامتك التجارية على التميز في العالم الرقمي.', 
-    fr: 'Prêt à élever votre présence numérique? Contactez-nous aujourd\'hui et discutons de la façon dont nous pouvons aider votre marque à se démarquer dans le monde numérique.' 
-  },
-  'contact.whyTitle': { en: 'Why Choose Bravix?', ar: 'لماذا تختار برافيكس؟', fr: 'Pourquoi Choisir Bravix?' },
-  'contact.premium': { en: 'Premium Quality Designs', ar: 'تصاميم عالية الجودة', fr: 'Designs de Qualité Premium' },
-  'contact.fast': { en: 'Fast Turnaround Time', ar: 'وقت تسليم سريع', fr: 'Délai de Livraison Rapide' },
-  'contact.support247': { en: '24/7 Customer Support', ar: 'دعم العملاء 24/7', fr: 'Support Client 24/7' },
-  'contact.pricing': { en: 'Competitive Pricing', ar: 'أسعار تنافسية', fr: 'Prix Compétitifs' },
-  'contact.success': { en: 'Message Sent!', ar: 'تم إرسال الرسالة!', fr: 'Message Envoyé!' },
-  'contact.successDesc': { en: 'Thank you for contacting us. We\'ll get back to you soon.', ar: 'شكرًا لتواصلكم معنا. سنعود إليكم قريبًا.', fr: 'Merci de nous avoir contactés. Nous vous répondrons bientôt.' },
-  'contact.error': { en: 'Error', ar: 'خطأ', fr: 'Erreur' },
-  'contact.errorDesc': { en: 'There was a problem sending your message. Please try again.', ar: 'حدث خطأ في إرسال رسالتك. يرجى المحاولة مرة أخرى.', fr: 'Il y a eu un problème lors de l\'envoi de votre message. Veuillez réessayer.' },
+  'contact.title': 'تواصل معنا',
+  'contact.name': 'الاسم',
+  'contact.email': 'البريد الإلكتروني',
+  'contact.service': 'نوع الخدمة',
+  'contact.message': 'الرسالة',
+  'contact.send': 'إرسال الرسالة',
+  'contact.sending': 'جارٍ الإرسال...',
+  'contact.subtitle': 'لننشئ شيئًا مذهلاً معًا',
+  'contact.description': 'هل أنت مستعد لرفع مستوى حضورك الرقمي؟ تواصل معنا اليوم ولنناقش كيف يمكننا مساعدة علامتك التجارية على التميز في العالم الرقمي.',
+  'contact.whyTitle': 'لماذا تختار برافيكس؟',
+  'contact.premium': 'تصاميم عالية الجودة',
+  'contact.fast': 'وقت تسليم سريع',
+  'contact.support247': 'دعم العملاء 24/7',
+  'contact.pricing': 'أسعار تنافسية',
+  'contact.success': 'تم إرسال الرسالة!',
+  'contact.successDesc': 'شكرًا لتواصلكم معنا. سنعود إليكم قريبًا.',
+  'contact.error': 'خطأ',
+  'contact.errorDesc': 'حدث خطأ في إرسال رسالتك. يرجى المحاولة مرة أخرى.',
   
   // NotFound Page
-  'notfound.title': { en: '404', ar: '404', fr: '404' },
-  'notfound.message': { en: 'Oops! Page not found', ar: 'عذراً! الصفحة غير موجودة', fr: 'Oups! Page non trouvée' },
-  'notfound.returnHome': { en: 'Return to Home', ar: 'العودة للرئيسية', fr: 'Retour à l\'Accueil' },
+  'notfound.title': '404',
+  'notfound.message': 'عذراً! الصفحة غير موجودة',
+  'notfound.returnHome': 'العودة للرئيسية',
 };
 
 export const useLanguage = () => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language] = useState<Language>('ar');
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language') as Language;
-    if (savedLanguage && ['en', 'ar', 'fr'].includes(savedLanguage)) {
-      setLanguage(savedLanguage);
-      document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr';
-    }
+    document.documentElement.dir = 'rtl';
   }, []);
 
-  const changeLanguage = (newLanguage: Language) => {
-    setLanguage(newLanguage);
-    localStorage.setItem('language', newLanguage);
-    document.documentElement.dir = newLanguage === 'ar' ? 'rtl' : 'ltr';
-  };
-
   const t = (key: string): string => {
-    return translations[key]?.[language] || key;
+    return translations[key] || key;
   };
 
-  return { language, changeLanguage, t };
+  return { language, t };
 };
