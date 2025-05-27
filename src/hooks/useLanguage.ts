@@ -30,6 +30,10 @@ export const translations: Translations = {
   },
   'hero.cta': { en: 'Request a Service', ar: 'اطلب خدمة', fr: 'Demander un Service' },
   
+  // Animated Banner
+  'banner.title': { en: 'Bravix', ar: 'برافيكس', fr: 'Bravix' },
+  'banner.subtitle': { en: 'Digital Marketing Solutions', ar: 'حلول التسويق الرقمي', fr: 'Solutions de Marketing Numérique' },
+  
   // Why Bravix Section
   'why.title': { en: 'Why Choose Bravix', ar: 'لماذا تختار برافيكس', fr: 'Pourquoi Choisir Bravix' },
   'why.quality.title': { en: 'Unmatched Quality', ar: 'جودة لا مثيل لها', fr: 'Qualité Inégalée' },
@@ -70,6 +74,20 @@ export const translations: Translations = {
   'portfolio.social': { en: 'Social Media', ar: 'وسائل التواصل', fr: 'Réseaux Sociaux' },
   'portfolio.advertising': { en: 'Advertising', ar: 'الإعلان', fr: 'Publicité' },
   
+  // Portfolio Items
+  'portfolio.item.logoDesign': { en: 'Logo Design', ar: 'تصميم الشعار', fr: 'Design de Logo' },
+  'portfolio.item.brandIdentity': { en: 'Brand Identity', ar: 'الهوية التجارية', fr: 'Identité de Marque' },
+  'portfolio.item.socialKit': { en: 'Social Media Kit', ar: 'حزمة وسائل التواصل', fr: 'Kit Réseaux Sociaux' },
+  'portfolio.item.businessCards': { en: 'Business Cards', ar: 'كروت العمل', fr: 'Cartes de Visite' },
+  'portfolio.item.brochures': { en: 'Brochures', ar: 'الكتيبات', fr: 'Brochures' },
+  'portfolio.item.banners': { en: 'Banners', ar: 'اللافتات', fr: 'Bannières' },
+  'portfolio.item.instagramCampaign': { en: 'Instagram Campaign', ar: 'حملة إنستجرام', fr: 'Campagne Instagram' },
+  'portfolio.item.facebookPosts': { en: 'Facebook Posts', ar: 'منشورات فيسبوك', fr: 'Publications Facebook' },
+  'portfolio.item.socialStrategy': { en: 'Social Strategy', ar: 'استراتيجية اجتماعية', fr: 'Stratégie Sociale' },
+  'portfolio.item.googleAds': { en: 'Google Ads', ar: 'إعلانات جوجل', fr: 'Publicités Google' },
+  'portfolio.item.facebookAds': { en: 'Facebook Ads', ar: 'إعلانات فيسبوك', fr: 'Publicités Facebook' },
+  'portfolio.item.campaignDesign': { en: 'Campaign Design', ar: 'تصميم الحملة', fr: 'Design de Campagne' },
+  
   // Contact Section
   'contact.title': { en: 'Get In Touch', ar: 'تواصل معنا', fr: 'Contactez-Nous' },
   'contact.name': { en: 'Name', ar: 'الاسم', fr: 'Nom' },
@@ -77,6 +95,7 @@ export const translations: Translations = {
   'contact.service': { en: 'Service Type', ar: 'نوع الخدمة', fr: 'Type de Service' },
   'contact.message': { en: 'Message', ar: 'الرسالة', fr: 'Message' },
   'contact.send': { en: 'Send Message', ar: 'إرسال الرسالة', fr: 'Envoyer le Message' },
+  'contact.sending': { en: 'Sending...', ar: 'جارٍ الإرسال...', fr: 'Envoi...' },
   'contact.subtitle': { en: 'Let\'s Create Something Amazing Together', ar: 'لننشئ شيئًا مذهلاً معًا', fr: 'Créons Quelque Chose d\'Incroyable Ensemble' },
   'contact.description': { 
     en: 'Ready to elevate your digital presence? Contact us today and let\'s discuss how we can help your brand stand out in the digital world.', 
@@ -90,6 +109,13 @@ export const translations: Translations = {
   'contact.pricing': { en: 'Competitive Pricing', ar: 'أسعار تنافسية', fr: 'Prix Compétitifs' },
   'contact.success': { en: 'Message Sent!', ar: 'تم إرسال الرسالة!', fr: 'Message Envoyé!' },
   'contact.successDesc': { en: 'Thank you for contacting us. We\'ll get back to you soon.', ar: 'شكرًا لتواصلكم معنا. سنعود إليكم قريبًا.', fr: 'Merci de nous avoir contactés. Nous vous répondrons bientôt.' },
+  'contact.error': { en: 'Error', ar: 'خطأ', fr: 'Erreur' },
+  'contact.errorDesc': { en: 'There was a problem sending your message. Please try again.', ar: 'حدث خطأ في إرسال رسالتك. يرجى المحاولة مرة أخرى.', fr: 'Il y a eu un problème lors de l\'envoi de votre message. Veuillez réessayer.' },
+  
+  // NotFound Page
+  'notfound.title': { en: '404', ar: '404', fr: '404' },
+  'notfound.message': { en: 'Oops! Page not found', ar: 'عذراً! الصفحة غير موجودة', fr: 'Oups! Page non trouvée' },
+  'notfound.returnHome': { en: 'Return to Home', ar: 'العودة للرئيسية', fr: 'Retour à l\'Accueil' },
 };
 
 export const useLanguage = () => {

@@ -26,14 +26,14 @@ const ContactSection = () => {
 
     try {
       // Create mailto link
-      const subject = encodeURIComponent(`New Service Request from ${formData.name}`);
+      const subject = encodeURIComponent(`${t('contact.title')} - ${formData.name}`);
       const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Service Type: ${formData.service}
-Message: ${formData.message}
+${t('contact.name')}: ${formData.name}
+${t('contact.email')}: ${formData.email}
+${t('contact.service')}: ${formData.service}
+${t('contact.message')}: ${formData.message}
 
-Sent from Bravix Website
+${t('banner.subtitle')}
       `);
       
       const mailtoLink = `mailto:alialibadr2010@gmail.com?subject=${subject}&body=${body}`;
@@ -48,8 +48,8 @@ Sent from Bravix Website
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
-        title: "Error",
-        description: "There was a problem sending your message. Please try again.",
+        title: t('contact.error'),
+        description: t('contact.errorDesc'),
         variant: "destructive",
       });
     } finally {
@@ -133,7 +133,7 @@ Sent from Bravix Website
                   className="w-full bg-bravix-orange hover:bg-bravix-orange/90 text-white py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
                 >
                   <Send className="mr-2 h-4 w-4" />
-                  {isSubmitting ? 'Sending...' : t('contact.send')}
+                  {isSubmitting ? t('contact.sending') : t('contact.send')}
                 </Button>
               </form>
             </CardContent>

@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 interface AnimatedBannerProps {
   isVisible: boolean;
@@ -8,6 +9,7 @@ interface AnimatedBannerProps {
 
 const AnimatedBanner = ({ isVisible, onComplete }: AnimatedBannerProps) => {
   const [shouldRender, setShouldRender] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (isVisible) {
@@ -28,9 +30,9 @@ const AnimatedBanner = ({ isVisible, onComplete }: AnimatedBannerProps) => {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center animate-scale-in">
             <h2 className="text-6xl md:text-8xl font-bold text-white tracking-wider mb-4">
-              Bravix
+              {t('banner.title')}
             </h2>
-            <p className="text-xl md:text-2xl text-white/80">Digital Marketing Solutions</p>
+            <p className="text-xl md:text-2xl text-white/80">{t('banner.subtitle')}</p>
           </div>
         </div>
         

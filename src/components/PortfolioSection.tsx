@@ -15,18 +15,18 @@ const PortfolioSection = () => {
   ];
 
   const portfolioItems = [
-    { id: 1, title: 'Logo Design', category: 'graphic', image: '/c/ali/bravix/design1.jpg' },
-    { id: 2, title: 'Brand Identity', category: 'graphic', image: '/c/ali/bravix/design2.jpg' },
-    { id: 3, title: 'Social Media Kit', category: 'graphic', image: '/c/ali/bravix/design3.jpg' },
-    { id: 4, title: 'Business Cards', category: 'printing', image: '/c/ali/bravix/printing1.jpg' },
-    { id: 5, title: 'Brochures', category: 'printing', image: '/c/ali/bravix/printing2.jpg' },
-    { id: 6, title: 'Banners', category: 'printing', image: '/c/ali/bravix/printing3.jpg' },
-    { id: 7, title: 'Instagram Campaign', category: 'social', image: '/c/ali/bravix/social1.jpg' },
-    { id: 8, title: 'Facebook Posts', category: 'social', image: '/c/ali/bravix/social2.jpg' },
-    { id: 9, title: 'Social Strategy', category: 'social', image: '/c/ali/bravix/social3.jpg' },
-    { id: 10, title: 'Google Ads', category: 'advertising', image: '/c/ali/bravix/advertising1.jpg' },
-    { id: 11, title: 'Facebook Ads', category: 'advertising', image: '/c/ali/bravix/advertising2.jpg' },
-    { id: 12, title: 'Campaign Design', category: 'advertising', image: '/c/ali/bravix/advertising3.jpg' },
+    { id: 1, titleKey: 'portfolio.item.logoDesign', category: 'graphic', image: '/c/ali/bravix/design1.jpg' },
+    { id: 2, titleKey: 'portfolio.item.brandIdentity', category: 'graphic', image: '/c/ali/bravix/design2.jpg' },
+    { id: 3, titleKey: 'portfolio.item.socialKit', category: 'graphic', image: '/c/ali/bravix/design3.jpg' },
+    { id: 4, titleKey: 'portfolio.item.businessCards', category: 'printing', image: '/c/ali/bravix/printing1.jpg' },
+    { id: 5, titleKey: 'portfolio.item.brochures', category: 'printing', image: '/c/ali/bravix/printing2.jpg' },
+    { id: 6, titleKey: 'portfolio.item.banners', category: 'printing', image: '/c/ali/bravix/printing3.jpg' },
+    { id: 7, titleKey: 'portfolio.item.instagramCampaign', category: 'social', image: '/c/ali/bravix/social1.jpg' },
+    { id: 8, titleKey: 'portfolio.item.facebookPosts', category: 'social', image: '/c/ali/bravix/social2.jpg' },
+    { id: 9, titleKey: 'portfolio.item.socialStrategy', category: 'social', image: '/c/ali/bravix/social3.jpg' },
+    { id: 10, titleKey: 'portfolio.item.googleAds', category: 'advertising', image: '/c/ali/bravix/advertising1.jpg' },
+    { id: 11, titleKey: 'portfolio.item.facebookAds', category: 'advertising', image: '/c/ali/bravix/advertising2.jpg' },
+    { id: 12, titleKey: 'portfolio.item.campaignDesign', category: 'advertising', image: '/c/ali/bravix/advertising3.jpg' },
   ];
 
   const filteredItems = portfolioItems.filter(item => item.category === activeTab);
@@ -70,7 +70,7 @@ const PortfolioSection = () => {
                 <div className="aspect-square relative overflow-hidden">
                   <img 
                     src={item.image} 
-                    alt={item.title}
+                    alt={t(item.titleKey)}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
@@ -84,7 +84,7 @@ const PortfolioSection = () => {
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="font-semibold text-lg">{item.title}</h3>
+                    <h3 className="font-semibold text-lg">{t(item.titleKey)}</h3>
                     <p className="text-sm opacity-90">{t(`portfolio.${item.category}`)}</p>
                   </div>
                 </div>
